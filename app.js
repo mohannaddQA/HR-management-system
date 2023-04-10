@@ -20,6 +20,8 @@ function salaryAfterTax(level) {
   return salary;
 }
 
+let employeesDataArray = [];
+
 function Employee(employeeID, fullName, department, level) {
   this.employeeID = employeeID;
   this.fullName = fullName;
@@ -27,8 +29,16 @@ function Employee(employeeID, fullName, department, level) {
   this.level = level;
   this.img = img;
   this.salary = salaryAfterTax(level);
+  employeesDataArray.push(this);
 }
-
+Employee.prototype.render = function () {
+  document.write("<br />");
+  document.write(
+    `full name: ${employeesData.fullName} ||| salary :${employeesData.salary} JD`
+  );
+  document.write("<br />");
+  document.write("<br />");
+};
 let data = [
   {
     employeeID: 1000,
@@ -83,10 +93,5 @@ for (i = 0; i < data.length; i++) {
     data[i].level,
     data[i].salary
   );
-  document.write("<br />");
-  document.write(
-    `full name: ${employeesData.fullName} ||| salary :${employeesData.salary}$`
-  );
-  document.write("<br />");
-  document.write("<br />");
+  employeesData.render();
 }
