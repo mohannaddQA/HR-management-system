@@ -6,20 +6,6 @@ function random(min, max) {
 
 let employeeID, fullName, department, level, img, salary;
 
-function salaryAfterTax(level) {
-  if (level == "Senior") {
-    salary = random(1500, 2000);
-    salary = salary - salary * 0.075;
-  } else if (level == "Mid-Senior") {
-    salary = random(1000, 1500);
-    salary = salary - salary * 0.075;
-  } else if (level == "Junior") {
-    salary = random(500, 1000);
-    salary = salary - salary * 0.075;
-  }
-  return salary;
-}
-
 let employeesDataArray = [];
 
 function Employee(employeeID, fullName, department, level) {
@@ -28,9 +14,23 @@ function Employee(employeeID, fullName, department, level) {
   this.department = department;
   this.level = level;
   this.img = img;
-  this.salary = salaryAfterTax(level);
+  this.salary = 0;
   employeesDataArray.push(this);
 }
+
+Employee.prototype.salaryAfterTax = function () {
+  if (this.level === "Senior") {
+    this.salary = random(1500, 2000);
+    this.salary = this.salary - this.salary * 0.075;
+  } else if (this.level === "Mid-Senior") {
+    this.salary = random(1000, 1500);
+    this.salary = this.salary - this.salary * 0.075;
+  } else if (this.level === "Junior") {
+    this.salary = random(500, 1000);
+    this.salary = this.salary - this.salary * 0.075;
+  }
+  return this.salary;
+};
 Employee.prototype.render = function () {
   document.write("<br />");
   document.write(
@@ -93,5 +93,6 @@ for (i = 0; i < data.length; i++) {
     data[i].level,
     data[i].salary
   );
+  employeesData.salaryAfterTax();
   employeesData.render();
 }
