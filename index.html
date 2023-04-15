@@ -20,14 +20,14 @@
       </nav>
     </header>
     <main>
-      <section id="formSection">
+      <section id="formSectionEL">
         <div>
-          <form id="employeesForm">
+          <form id="formEL">
             <fieldset>
               <h1>Add Employee</h1>
               <br />
               <h3>Full Name :</h3>
-              <input type="text" id="Name" name="Name" /> <br />
+              <input type="text" id="name" name="name" /> <br />
               <h3>Department :</h3>
               <select id="department" name="department">
                 <option value="Administration">Administration</option>
@@ -44,15 +44,14 @@
               </select>
               <br />
               <h3>Image url :</h3>
-              <input type="text" id="imgurl" name="imgURL" />
-              <input type="submit" value="submit" /> <br />
+              <input type="text" id="imgurl" name="imgurl" />
+              <input type="submit" value="submit" id="submitEL" /> <br />
             </fieldset>
           </form>
           <hr />
         </div>
       </section>
-      <section id="cardsSection"></section>
-      <script src="app.js"></script>
+      <section id="cardsSectionEL"></section>
     </main>
     <footer>
       <div>
@@ -69,5 +68,7 @@
         <p>Copyright &copy; 2023</p>
       </div>
     </footer>
+    <!-- <script src="./events.js"></script> -->
+    <script src="./app.js"></script>
   </body>
 </html>

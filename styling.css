@@ -67,6 +67,24 @@ input[type="submit"] {
   font-weight: bolder;
 }
 
+main #cardsContainorEL {
+  display: inline-block;
+  align-content: center;
+}
+main #cardsSectionEL #cardsContainorEL div {
+  background-color: rgba(0, 187, 254, 0.623);
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
+  align-content: center;
+  display: inline-block;
+  margin: 1%;
+}
+
+main #cardsSectionEL #cardsContainorEL div img {
+  height: 350px;
+}
+
 footer div {
   background-color: #3498db;
   text-align: center;
