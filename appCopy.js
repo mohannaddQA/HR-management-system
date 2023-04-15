@@ -38,45 +38,40 @@ _Employee.prototype.$IdGenerator = function () {
   return this.employeeID;
 };
 
-const cardsSectionEL = document.getElementById("cardsSectionEL"); //calls the element to JS
-const cardsContainorEL = document.createElement("div"); // creats an element
-cardsContainorEL.setAttribute("id", "cardsContainorEL");
-cardsSectionEL.appendChild(cardsContainorEL);
-
-_Employee.prototype.$Render = function () {
-  const employeeCardEL = document.createElement("div");
-
-  employeeCardEL.setAttribute("id", "employeeCardEL"); // give some attributes to the element
-  cardsContainorEL.appendChild(employeeCardEL);
+_Employee.prototype.Render = function () {
+  const cardsSectionEL = document.getElementById("cardsSectionEL"); //calls the element to JS
+  // const employeeCardEL = document.createElement("div"); // creats an element
+  // employeeCardEL.setAttribute("id", "employeeCardEL"); // give some attributes to the element
+  cardsSectionEL.appendChild(employeeCardEL);
 
   const employeeIDEL = document.createElement("h4");
-  employeeIDEL.setAttribute("id", "employeeIDEl");
+  employeeIDEL.attributes("id", "employeeIDEl");
   employeeIDEL.textContent = `Emplooyee ID: ${this.employeeID}`;
-  employeeCardEL.appendChild(employeeIDEL);
+  cardsSectionEL.appendChild(employeeIdEL);
 
   const fullNameEL = document.createElement("h4");
-  fullNameEL.setAttribute("id", "fullNameEL");
-  fullNameEL.textContent = `Full name: ${this.fullName}`;
-  employeeCardEL.appendChild(fullNameEL);
+  fullNameEL.attributes("id", "fullNameEL");
+  fullNameEl.textContent = `Full name: ${this.fullName}`;
+  cardsSectionEL.appendChild(fullNameEL);
 
   const imgEL = document.createElement("img");
-  imgEL.setAttribute("id", "imgEL");
-  imgEL.setAttribute("src", `${this.imgurl}`);
-  employeeCardEL.appendChild(imgEL); // notice that the append comes at last so that it reads all attributes before appending
+  imgEL.src = this.imgurl;
+  imgEL.id = "imgEL";
+  cardsSectionEL.appendChild(imgEL); // notice that the append comes at last so that it reads all attributes before appending
 
   const departmentEL = document.createElement("h5");
-  departmentEL.setAttribute("id", "departmentEL");
-  departmentEL.textContent = `Department: ${this.department}`;
-  employeeCardEL.appendChild(departmentEL);
+  departmentEL.id = "departmentEL";
+  departmentEl.textContent = `Department: ${this.department}`;
+  cardsSectionEL.appendChild(departmentEL);
 
   const levelEL = document.createElement("h5");
   levelEL.id = "levelEL";
   levelEL.textContent = `level: ${this.level}`;
-  employeeCardEL.appendChild(levelEL);
+  cardsSectionEL.appendChild(levelEL);
 
   const salaryEL = document.createElement("h5");
   salaryEL.id = "salaryEL";
-  salaryEL.textContent = `salary: ${this.salary}`;
+  salaryEL.textContent = `Department: ${this.salary}`;
   employeeCardEL.appendChild(salaryEL);
 };
 
@@ -90,9 +85,7 @@ function HandleSubmit(event) {
   let newEmployee = new _Employee(fullName, department, level, imgurl);
   newEmployee.$IdGenerator();
   newEmployee.$SalaryAfterTax();
-  newEmployee.$Render();
+  newEmployee.Render();
 }
 let formEL = document.getElementById("formEL");
 formEL.addEventListener("submit", HandleSubmit);
-
-//styling the cards ::
