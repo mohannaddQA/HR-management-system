@@ -84,6 +84,22 @@ main #cardsSectionEL #cardsContainorEL div {
 main #cardsSectionEL #cardsContainorEL div img {
   height: 350px;
 }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
 
 footer div {
   background-color: #3498db;

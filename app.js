@@ -18,7 +18,7 @@ function _Employee(fullName, department, level, imgurl) {
 
   employeesData.push(this);
 }
-
+console.log(employeesData);
 _Employee.prototype.$SalaryAfterTax = function () {
   if (this.level === "Senior") {
     this.salary = random(1500, 2000);
@@ -90,9 +90,33 @@ function HandleSubmit(event) {
   let newEmployee = new _Employee(fullName, department, level, imgurl);
   newEmployee.$IdGenerator();
   newEmployee.$SalaryAfterTax();
+  SaveEmployeesData(employeesData);
   newEmployee.$Render();
 }
 let formEL = document.getElementById("formEL");
 formEL.addEventListener("submit", HandleSubmit);
 
-//styling the cards ::
+function SaveEmployeesData(data) {
+  const strEmployeesData = JSON.stringify(data);
+  localStorage.setItem("employeesData", strEmployeesData);
+}
+function getEmployeesData() {
+  let employeesData = JSON.parse(localStorage.getItem("employeesData"));
+
+  for (let i in employeesData) {
+    let newEmployee = new _Employee(
+      employeesData[i].fullName,
+      employeesData[i].department,
+      employeesData[i].level,
+      employeesData[i].imgurl
+    );
+    newEmployee.$IdGenerator();
+    newEmployee.$SalaryAfterTax();
+    newEmployee.$Render();
+  }
+}
+// console.log("afterretrieving", typeof employeesData, employeesData);
+
+// getEmployeesData();
+
+getEmployeesData();
