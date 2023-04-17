@@ -20,17 +20,36 @@ function checkDepartment() {
   }
 }
 checkDepartment();
+
 let tableBodyEL = document.getElementById("tableBodyEL");
+// let totalNumberOfEmployeesEL = document.getElementById(
+//   "totalNumberOfEmployeesEL"
+// );                           //// why we didn't have to get el by id for the rest totals ??
+let totalNumberOfEmployees = 0;
+let avgSalaryOfAll = 0;
+let totalSalaryOfAll = 0;
+
 for (eachDepartment in departmentData) {
   let depRow = document.createElement("tr");
-  // tableBodyEL.appendChild(depRow);
-  // let depNumOfEmloyeesCELL = tableBodyEL.appendChild("td");
-  // let depAvgSalaryCELL = tableBodyEL.appendChild("tr");
-  // let depTotalSalaryCELL = tableBodyEL.appendChild("td");
-  // depNameCELL.textContent = departmentData[eachDepartment];
-  // depNumOfEmloyeesCELL.textContent=
+  let depNameCELL = document.createElement("td");
+  let depNumOfEmloyeesCELL = document.createElement("td");
+  let depAvgSalaryCELL = document.createElement("td");
+  let depTotalSalaryCEL = document.createElement("td");
+  tableBodyEL.appendChild(depRow);
+  depRow.appendChild(depNameCELL);
+  depRow.appendChild(depNumOfEmloyeesCELL);
+  depRow.appendChild(depAvgSalaryCELL);
+  depRow.appendChild(depTotalSalaryCEL);
+  //// be carfule of the right notation to access inside the object
+  depNameCELL.textContent = `${eachDepartment}`;
+  depNumOfEmloyeesCELL.textContent = `${departmentData[eachDepartment].numOfEmployees}`;
+  depTotalSalaryCEL.textContent = `${departmentData[eachDepartment].avgSalary}`;
+  depAvgSalaryCELL.textContent = `${departmentData[eachDepartment].totalSalary}`;
+  totalNumberOfEmployees += departmentData[eachDepartment].numOfEmployees;
+  totalNumberOfEmployeesEL.textContent = `${totalNumberOfEmployees}`;
+  totalSalaryOfAll += departmentData[eachDepartment].totalSalary;
+  toltalSalaryofAll.textContent = `${totalSalaryOfAll}`;
+  avgSalaryOfAll += departmentData[eachDepartment].avgSalary / 4;
+  avgSalaryOfAllEL.textContent = `${avgSalaryOfAll}`;
+  // totalNumberOfEmployeesEL.textContent = `${totalNumberOfEmployees}`;
 }
-console.log(departmentData);
-let depRow = document.createElement("tr");
-
-tableBodyEL.appendChild(depRow);
