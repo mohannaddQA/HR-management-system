@@ -29,8 +29,80 @@ header nav a {
   text-decoration: none;
 }
 
+main div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+main h1 {
+  text-align: center;
+  font-size: larger;
+}
+main h3 {
+  position: relative;
+  text-align: center;
+}
+main input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: #0c87b0;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bolder;
+}
+
+main #cardsContainorEL {
+  display: inline-block;
+  align-content: center;
+}
+main #cardsSectionEL #cardsContainorEL div {
+  background-color: rgba(0, 187, 254, 0.623);
+  height: fit-content;
+  width: fit-content;
+  align-items: center;
+  align-content: center;
+  display: inline-block;
+  margin: 1%;
+}
+
+main #cardsSectionEL #cardsContainorEL div img {
+  height: 350px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 footer div {
-  background-color: #00d0ff;
+  background-color: #3498db;
   text-align: center;
   position: relative;
   top: 0;
